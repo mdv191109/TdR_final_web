@@ -1,22 +1,22 @@
 /* Fonts */
 @font-face {
   font-family: "basenjiBold";
-  src: url("/files_font/Basenji-SemiBold.otf");
+  src: url("files_font/Basenji-SemiBold.otf");
 }
 
 @font-face {
   font-family: "highbrow";
-  src: url("/files_font/Highbrow.ttf");
+  src: url("files_font/Highbrow.ttf");
 }
 
 @font-face {
   font-family: "sunday";
-  src: url("/files_font/sunday.otf");
+  src: url("files_font/sunday.otf");
 }
 
 @font-face {
   font-family: "cafe";
-  src: url("/files_font/cafe.ttf");
+  src: url("files_font/cafe.ttf");
 }
 
 /* Base */
