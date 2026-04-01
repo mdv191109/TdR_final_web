@@ -159,9 +159,9 @@ function refreshUI() {
   }
 
   // Actualitzar imatges
-  vas_img.src = `/files_images/images_vas/vas_acidity_${current}.png`;
-  ex1_img.src = `/files_images/images_exemple/exemple_1.${current}.png`;
-  ex2_img.src = `/files_images/images_exemple/exemple_2.${current}.png`;
+  vas_img.src = `files_images/images_vas/vas_acidity_${current}.png`;
+  ex1_img.src = `files_images/images_exemple/exemple_1.${current}.png`;
+  ex2_img.src = `files_images/images_exemple/exemple_2.${current}.png`;
 
   triggerPulse();
 }
