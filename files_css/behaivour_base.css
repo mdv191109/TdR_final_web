@@ -1,0 +1,397 @@
+/* =========================================
+   1. GLOBAL & BODY 
+   ========================================= */
+body {
+  margin: 0;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  background-color: var(--lab-bg);
+  background-image: 
+    linear-gradient(var(--lab-blue-soft) 3px, transparent 3px),
+    linear-gradient(90deg, var(--lab-blue-soft) 3px, transparent 3px);
+  background-size: clamp(20px, 5vw, 40px) clamp(20px, 5vw, 40px);
+  animation: moveGrid 4s linear infinite;
+}
+
+body#titlescreen_body {
+  padding-inline: clamp(15px, 5%, 10%);
+  max-width: 100%;
+}
+
+body.loading {
+  height: 200%;
+  background-image: linear-gradient(var(--lab-blue-primary));
+  animation: none;
+}
+
+::selection {
+  color: var(--lab-selection-text);
+  background: var(--lab-selection-background);
+}
+
+/* =========================================
+   2. LAYOUT & CONTAINERS 
+   ========================================= */
+main.simulatorscreen_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+main.titlescreen_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#js_titlescreen_content,
+#pageContent {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  min-height: 50vh;
+}
+
+#js_titlescreen_content {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile First */
+  gap: 20px;
+  height: auto;
+  min-height: 95dvh;
+}
+
+.simulatorscreen_content {
+  width: 95%;
+  max-width: 1200px;
+  padding: clamp(16px, 4vw, 40px);
+  background: var(--lab-panel);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--white);
+  border-radius: clamp(16px, 3vw, 32px);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+#informacio {
+  display: flex;
+  flex-direction: column; /* Mobile First */
+ 
+  gap: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+div.credits {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* =========================================
+   3. COMPONENTS & UI 
+   ========================================= */
+
+/* Side Panel Toggle (Checkbox Hack) */
+.panel-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  background: var(--lab-blue-primary);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.side_configuration_var {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: -100%; 
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 85vw;
+  padding: 80px 20px 20px 20px;
+  background: var(--lab-panel);
+  backdrop-filter: blur(10px);
+  border-left: solid 10px var(--lab-blue-primary);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  overflow-y: auto;
+  transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  height: fit-content;
+  border-radius: 20px;
+}
+
+#side-panel-toggle:checked ~ .side_configuration_var {
+  right: 0;
+}
+
+#side-panel-toggle:checked ~ .panel-button {
+  transform: translateX(-230px);
+}
+
+/* Post-it */
+.post-it {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(120px, 40vw, 200px);
+  height: clamp(120px, 40vw, 200px);
+  margin: 0 auto;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--lab-yellow-soft) 0%, var(--lab-yellow-contrast) 100%);
+  color: var(--lab-brown);
+  border: 3px solid var(--lab-yellow-deep);
+  border-radius: 5px;
+  box-shadow: 0 5px 20px var(--shadow-yellow);
+  transform: scale(0.8) rotate(5deg);
+  transition: all 0.4s;
+}
+
+.post-it:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Buttons */
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  height: clamp(40px, 6vw, 48px);
+  padding: 0 clamp(12px, 3vw, 20px);
+  background-color: var(--lab-bg);
+  color: var(--lab-blue-deep);
+  border: 1px solid var(--lab-border);
+  border-radius: 14px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  cursor: pointer;
+  box-shadow: 0 4px 10px var(--shadow-blue-soft);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--lab-blue-primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow-blue-strong);
+}
+
+.dreta {
+  padding: 5px 15px;
+  margin: 5px;
+  background: var(--lab-blue-soft);
+  color: var(--lab-blue-deep);
+  border: 1px solid var(--lab-border);
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+}
+
+.vars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 8px;
+}
+
+/* Images & Details */
+#vas {
+  width: var(--main-img-size);
+  height: var(--main-img-size);
+  object-fit: contain;
+  border-radius: 20px;
+  background-image: linear-gradient(180deg, var(--lab-border) 0%, var(--lab-blue-primary) 100%);
+  filter: drop-shadow(0px 5px 5px var(--shadow-vas));
+}
+
+.detalls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  margin-right: 2vw;
+}
+
+.detall_1, .detall_2 {
+  width: 100%;
+  max-width: 170px;
+  padding: clamp(10px, 3vw, 30px);
+  background: var(--white);
+  border: 1px solid var(--lab-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.detalls img {
+  width: var(--example-img-size);
+  height: var(--example-img-size); /*not final, just until I have the final examples images sized correctly */
+  border: 3px solid var(--white);
+  border-radius: 18px;
+  box-shadow: 0 8px 10px var(--shadow-blue-soft);
+  transition: transform 0.3s ease;
+}
+
+.detalls img:hover {
+  transform: scale(1.1);
+}
+
+.controladors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  padding: 18px;
+  background: linear-gradient(to right, var(--lab-blue-soft), var(--lab-bg));
+  border: 1px solid var(--lab-border);
+  border-radius: 20px;
+}
+
+/* =========================================
+   4. ANIMATIONS & LOADER 
+   ========================================= */
+#loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+}
+
+#loader div {
+  width: 20px;
+  height: 20px;
+  background-color: var(--lab-blue-soft);
+  border-radius: 50%;
+  animation: jump 0.35s infinite alternate;
+}
+
+#loader div:nth-child(2) { animation-delay: 0.1s; }
+#loader div:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes jump {
+  from { transform: translateY(0); }
+  to { transform: translateY(-30px); }
+}
+
+@keyframes moveGrid {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: clamp(20px, 5vw, 40px) clamp(20px, 5vw, 40px), clamp(20px, 5vw, 40px) clamp(20px, 5vw, 40px); }
+}
+
+#pageContent.show,
+#js_titlescreen_content.show {
+  visibility: visible;
+  animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+  60% { opacity: 1; transform: scale(1.03) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.page-animate { animation: pagePulse 0.6s ease-out; }
+
+@keyframes pagePulse {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  15% { transform: rotate(0.4deg) translateX(4px); }
+  40% { transform: rotate(-0.2deg) translateX(-2px); }
+  70% { transform: rotate(0.1deg) translateX(1px); }
+}
+
+#startButton { animation: pulse_start_button 3s ease-in-out infinite; }
+
+@keyframes pulse_start_button {
+  0%, 100% { transform: scale(1); background-color: var(--white); color: var(--text-primary); }
+  40% { background-color: var(--lab-blue-primary); color: var(--white); border: 4px solid var(--lab-blue-deep); }
+  60% { transform: scale(1.15); background-color: var(--lab-blue-primary); color: var(--white); }
+}
+
+h1, .title_char {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  background-image: linear-gradient(180deg, var(--lab-blue-primary), var(--lab-blue-deep));
+  background-clip: text;
+  color: transparent;
+  transition: transform 2s ease-in-out;
+}
+
+.title_char div { animation: title_jump 1s infinite alternate; }
+
+@keyframes title_jump {
+  from { transform: translateY(0) scale(2); text-shadow: 0 0px 0px rgba(224, 242, 254, 0.5); }
+  to { transform: translateY(-20px) scale(1.8); text-shadow: 0 0px 0px var(--shadow-blue-soft); }
+}
+
+/* Title Character Delays */
+.title_char div:nth-child(1) { animation-delay: 0s; }
+.title_char div:nth-child(2) { animation-delay: 0.05s; }
+.title_char div:nth-child(3) { animation-delay: 0.1s; }
+.title_char div:nth-child(4) { animation-delay: 0.15s; }
+.title_char div:nth-child(5) { animation-delay: 0.2s; }
+.title_char div:nth-child(6) { animation-delay: 0.25s; }
+.title_char div:nth-child(7) { animation-delay: 0.3s; }
+.title_char div:nth-child(8) { animation-delay: 0.35s; }
+.title_char div:nth-child(9) { animation-delay: 0.4s; }
+.title_char div:nth-child(10){ animation-delay: 0.45s; }
+.title_char div:nth-child(11){ animation-delay: 0.5s; }
+.title_char div:nth-child(12){ animation-delay: 0.55s; }
+.title_char div:nth-child(13){ animation-delay: 0.6s; }
+.title_char div:nth-child(14){ animation-delay: 0.65s; }
+.title_char div:nth-child(15){ animation-delay: 0.7s; }
+.title_char div:nth-child(16){ animation-delay: 0.75s; }
+.title_char div:nth-child(17){ animation-delay: 0.8s; }
+.title_char div:nth-child(18){ animation-delay: 0.85s; }
+.title_char div:nth-child(19){ animation-delay: 0.9s; }
+.title_char div:nth-child(20){ animation-delay: 0.95s; }
+
+/* =========================================
+   5. RESPONSIVE QUERIES 
+   ========================================= */
+
+@media (max-width: 600px) {
+  .side_configuration_var {
+    width: 100%;
+    border-left: none;
+    border-top: solid 10px var(--lab-blue-primary);
+  }
+  #side-panel-toggle:checked ~ .panel-button {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  #js_titlescreen_content { grid-template-columns: 1fr 3fr 1fr; }
+  #informacio { flex-direction: row; }
+  .detall_1, .detall_2 { width: auto; }
+}
+
+@media (min-width: 1024px) {
+  #js_titlescreen_content { grid-template-columns: 1fr 4fr 1fr; }
+}

@@ -1,0 +1,33 @@
+:root {
+  /* Base colors - Inverted for Dark Mode */
+  --lab-bg: #060a11;               /* Deep slate blue */
+  --lab-panel: rgb(22, 36, 58); /* Translucent dark navy */
+  --lab-blue-primary: rgb(56, 189, 248);     /* Brighter sky blue for visibility */
+  --lab-blue-deep: #7dd3fc;        /* Lighter blue for better contrast */
+  --lab-blue-soft: #1e293b;        /* Dark muted blue for subtle areas */
+  --lab-border: rgba(7, 158, 223, 0.2);
+  --lab-yellow-contrast: #fbbf24;  /* Vibrant amber */
+  --lab-yellow-soft: #e5de0f;      /* Muted, dark gold for backgrounds */
+  --lab-yellow-deep: #fcd34d;      /* Bright gold accent */
+  --lab-brown: #872d2d;
+
+  /* Derived - Lightened text for dark backgrounds */
+  --text-primary: #e2e8f0;         /* Soft white/grey */
+  --text-strong: #f8fafc;          /* High-contrast white */
+  --white: #1e293b;                /* Effectively the "new" card color */
+
+  --shadow-vas: rgba(56, 158, 223, 0.5);
+
+  /* Shadows - Darkened and intensified to stand out on dark bg */
+  --shadow: 0 15px 15px -5px rgba(69, 233, 255, 0.5),
+            0 10px 10px -5px rgba(0, 0, 0, 0.3);
+
+  --shadow-blue-soft: rgba(56, 189, 248, 0.1);
+  --shadow-blue-strong: rgba(56, 189, 248, 0.2);
+  --shadow-yellow: rgba(251, 190, 36, 0.706);
+
+  /* Sizes - Unchanged */
+  --main-img-size: 200px;
+  --example-img-size: 130px;
+  --row-min-height: 350px;
+}

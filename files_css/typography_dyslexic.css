@@ -1,0 +1,62 @@
+/* Fonts */
+@font-face {
+  font-family: "dis";
+  src: url("/files_font/OpenDyslexic-Regular.otf");
+}
+
+/* Base */
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 4px 0 0 0;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Headings */
+h1 {
+  font-family: "dis";
+  font-size: 45px;
+  margin: 20px;
+}
+
+h2 {
+  font-family: "dis";
+  font-size: 23px;
+  margin: 20px;
+  color: var(--lab-blue-deep);
+}
+
+/* General */
+p,
+button {
+  font-family: "dis";
+  font-size: 16px;
+}
+
+/* Specific */
+#main_title {
+  font-size: 70px;
+}
+
+/* Component text */
+.post-it {
+  font-family: "dis";
+  font-size: 14px;
+}
+
+.dreta {
+  font-weight: bold;
+}
+
+button,
+#startButton {
+  font-weight: 600;
+}
+
+.text {
+  text-align: center;
+  color: var(--text-strong);
+}

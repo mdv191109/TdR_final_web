@@ -1,0 +1,78 @@
+/* Fonts */
+@font-face {
+  font-family: "basenjiBold";
+  src: url("/files_font/Basenji-SemiBold.otf");
+}
+
+@font-face {
+  font-family: "highbrow";
+  src: url("/files_font/Highbrow.ttf");
+}
+
+@font-face {
+  font-family: "sunday";
+  src: url("/files_font/sunday.otf");
+}
+
+@font-face {
+  font-family: "cafe";
+  src: url("/files_font/cafe.ttf");
+}
+
+/* Base */
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 4px 0 0 0;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Headings */
+h1 {
+  font-family: "basenjiBold";
+  font-size: 48px;
+  margin: 16px;
+}
+
+h2 {
+  font-family: "cafe";
+  font-size: 26px;
+  margin: 5px;
+  color: var(--lab-blue-deep);
+}
+
+/* General */
+p,
+button {
+  font-family: "cafe";
+  font-size: 20px;
+}
+
+/* Specific */
+#main_title {
+  font-size: 70px;
+}
+
+/* Component text */
+.post-it,
+h3 {
+  font-family: "sunday";
+  font-size: 30px;
+  color: var(--lab-brown);
+}
+
+.dreta {
+  font-weight: bold;
+}
+
+button,
+#startButton {
+  font-weight: 600;
+}
+
+.text {
+  text-align: center;
+  color: var(--text-strong);
+}

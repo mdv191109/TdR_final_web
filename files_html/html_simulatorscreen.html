@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador ácid-base</title>
+  <link id="palette-style" type="text/css" rel="stylesheet" href="/files_css/palette_lightmode.css">
+  <link id="font-style" type="text/css" rel="stylesheet" href="/files_css/typography_normal.css">
+  <link id="behaviour-style" type="text/css" rel="stylesheet" href="/files_css/behaivour_base.css">
+  <link rel="icon" type="image/png" href="/files_images/images_icon/favicon.png" />
+</head>
+
+<body class="loading">
+  <div id="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+  <div id="pageContent">
+    <main class="simulatorscreen_main">
+      <section id="main_sizescaling_content">
+        <section class="simulatorscreen_content">
+          <section id="titol">
+            <h1 data-i18n="p_title">Dissolucions àcid-bàsiques</h1>
+          </section>
+
+          <section id="informacio">
+            <div id="columna_esquerra">
+              <div class="text">
+                <div class="vars">
+                  <p data-i18n="p_ph">valor pH</p>
+                  <p class="dreta" id="value">7</p>
+                </div>
+                <div class="vars">
+                  <p data-i18n="p_type">tipus</p>
+                  <p class="dreta" id="kind">Neutre</p>
+                </div>
+              </div>
+              <div id="post-it" class="post-it">
+                <h3 id="post_it">
+                  Aquí apareixerà un comentari sobre la mescla.
+                </h3>
+              </div>
+            </div>
+            <div class="columna_mig">
+              <img src="/files_images/images_vas/vas_acidity_7.png" alt="vas" id="vas" />
+            </div>
+            <div class="columna_dreta">
+              <div class="titol">
+                <h2 data-i18n="p_comparison">La mescla és tan àcida com:</h2>
+              </div>
+              <div class="detalls">
+                <div class="detall_1">
+                  <img src="/files_images/images_exemple/exemple_1.7.png" alt="primer exemple" id="exemple_1" />
+                  <p id="info_1">Aigua destil·lada</p>
+                </div>
+                <div class="detall_2">
+                  <img src="/files_images/images_exemple/exemple_2.7.png" alt="segon exemple" id="exemple_2" />
+                  <p id="info_2">Aigua pura</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="controladors">
+            <button type="button" id="add" data-i18n="btn_more">Més bàsic</button>
+            <button type="button" id="sub" data-i18n="btn_less">Més àcid</button>
+            <button type="button" id="zer" data-i18n="btn_reset">Restablir</button>
+          </section>
+        </section>
+
+      </section>
+      <input type="checkbox" id="side-panel-toggle" style="display: none;">
+      <label for="side-panel-toggle" class="panel-button">Configuració</label>
+      <div class="side_configuration_var">
+        <h2 data-i18n="p_lang">Idioma</h2>
+        <button class="btn-lang" data-lang="es">Castellano</button>
+        <button class="btn-lang" data-lang="ca">Català</button>
+        <button class="btn-lang" data-lang="en">English</button>
+
+        <h2 data-i18n="p_typo">Tipografies</h2>
+        <button onclick="change_font(),  triggerPulse()" id="font_button" data-i18n="btn_dis">Mode dislèxic</button>
+
+        <h2 data-i18n="p_dark">Modo oscuro</h2>
+        <button onclick="change_palette(),  triggerPulse()" id="palette_button" data-i18n="btn_dark">Mode fosc</button>
+
+        <h2 data-i18n="p_contrast">Contraste</h2>
+        <button onclick="change_contrast(),  triggerPulse()" id="contrast_button" data-i18n="btn_contrast">Mode alt
+          contrast</button>
+
+        <h2 data-i18n="p_size">Mida</h2>
+        <button onclick="change_size(),  triggerPulse()" id="size_button" data-i18n="btn_size">Augmentar mida</button>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script src="/files_js/js_loader_simulatorscreen.js"></script>
+<script src="/files_js/js_behaivour.js"></script>
+<script src="/files_js/js_change_font.js"></script>
+<script src="/files_js/js_change_palette.js"></script>
+<script src="/files_js/js_change_contrast.js"></script>
+<script src="/files_js/js_change_size.js" type="text/javascript"></script>
+
+</html>
